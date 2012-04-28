@@ -9,11 +9,11 @@
     "repositories": [
         {
             "type": "git", 
-            "url": "https://github.com/gzip/mojito-app"
+            "url": "https://github.com/gzip/mojito-intro"
         }
     ],
     "bugs": {
-        "url": "https://github.com/gzip/mojito-app/issues"
+        "url": "https://github.com/gzip/mojito-intro/issues"
     },
     "dependencies": {
         "mojito": "0.3.x",
