@@ -12,49 +12,37 @@ YUI.add('Preso', function(Y, NAME)
         index: function(ac)
         {
             var self = this,
-                // slide can come from routes or query params
+                slides = self.config.slides,
+                numSlides = slides.length,
+                // slide can come from routes or query params so get from merged
                 currentSlide = parseInt(ac.params.merged('slide') || '1', 10),
                 children = null;
             
             // store slide info
             self.currentSlide = currentSlide;
-            self.prevSlide = currentSlide > 1 ? currentSlide - 1 : self.config.numSlides;
-            self.nextSlide = currentSlide < self.config.numSlides ? currentSlide + 1 : 1;
+            self.prevSlide = currentSlide > 1 ? currentSlide - 1 : numSlides;
+            self.nextSlide = currentSlide < numSlides ? currentSlide + 1 : 1;
             
-            // store ac for access in other methods and closure
+            // store config for access in binder
+            ac.instance.config.numSlides = numSlides;
+            
+            // store ac for access in other methods
             self.ac = ac;
             
-            function done(meta)
-            {
-                var viewName = 'slide' + currentSlide,
-                    meta = meta || {};
-                
-                // workaround for a diff view and binder
-                self.populateBinder('index', viewName);
-                
-                // specify the curent slide as the view
-                meta.view = {'name': viewName};
-                
-                // end execution
-                self.ac.done({nav: self.genNav()}, meta);
-            }
+            // workaround for an arbitrary view
+            self.populateView('index', slides[currentSlide - 1]);
             
-            // handle any children that the slide expects
-            switch(currentSlide)
-            {
-                
-            }
-            
-            done();
+            // end execution
+            self.ac.done({nav: self.genNav()});
         },
         
-        // use the binder from one view in another
-        populateBinder: function(base, target)
+        // attach an arbitrary view
+        populateView: function(target, slidePath)
         {
             var self = this,
-                views = self.ac.command.instance.views;
+                views = self.ac.command.instance.views
             
-            views[target] = Y.merge(views[base], views[target]);
+            views[target]['content-path'] = slidePath;
         },
         
         genNav: function()
