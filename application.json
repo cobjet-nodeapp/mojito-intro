@@ -25,18 +25,6 @@
             "./middleware/src-handler.js"
         ],
         "specs": {
-            "weather": {
-                "type": "HTMLFrameMojit",
-                "config": {
-                    "title": "Weather",
-                    "deploy": true,
-                    "child": {
-                        "type": "Weather",
-                        "config": {
-                        }
-                    }
-                }
-            },
             "preso": {
                 "type": "HTMLFrameMojit",
                 "config": {
@@ -45,7 +33,24 @@
                     "child": {
                         "type": "Preso",
                         "config": {
-                            "numSlides": 16
+                            "slides": [
+                                "./views/slide1.mu.html",
+                                "./views/slide2.mu.html",
+                                "./views/slide3.mu.html",
+                                "./views/slide4.mu.html",
+                                "./views/slide5.mu.html",
+                                "./views/slide6.mu.html",
+                                "./views/slide7.mu.html",
+                                "./views/slide8.mu.html",
+                                "./views/slide9.mu.html",
+                                "./views/slide10.mu.html",
+                                "./views/slide11.mu.html",
+                                "./views/slide12.mu.html",
+                                "./views/slide13.mu.html",
+                                "./views/slide14.mu.html",
+                                "./views/slide15.mu.html",
+                                "./views/slide16.mu.html"
+                            ]
                         }
                     },
                     "assets": {
@@ -53,6 +58,18 @@
                             "css": [
                                 "/static/Preso/assets/preso.css"
                             ]
+                        }
+                    }
+                }
+            },
+            "weather": {
+                "type": "HTMLFrameMojit",
+                "config": {
+                    "title": "Weather",
+                    "deploy": true,
+                    "child": {
+                        "type": "Weather",
+                        "config": {
                         }
                     }
                 }
