@@ -1,7 +1,8 @@
 {
     "name": "mojito-intro",
     "description": "Intro to Mojito",
-    "version": "1.1.0",
+    "version": "1.1.1",
+    "homepage": "https://github.com/gzip/mojito-intro",
     "author": {
         "name": "Gamaiel Zavala",
         "email": "gamaiel@yahoo.com"
@@ -9,7 +10,7 @@
     "repositories": [
         {
             "type": "git", 
-            "url": "https://github.com/gzip/mojito-intro"
+            "url": "git://github.com/gzip/mojito-intro.git"
         }
     ],
     "bugs": {
