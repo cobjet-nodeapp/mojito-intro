@@ -19,6 +19,7 @@ YUI.add('Preso', function(Y, NAME)
                 children = null;
             
             // store slide info
+            self.prefix = self.config.prefix || '/';
             self.currentSlide = currentSlide;
             self.prevSlide = currentSlide > 1 ? currentSlide - 1 : numSlides;
             self.nextSlide = currentSlide < numSlides ? currentSlide + 1 : 1;
@@ -51,9 +52,9 @@ YUI.add('Preso', function(Y, NAME)
             
             return [
             '<nav>',
-                '<a href="/' + self.prevSlide + '" data-slide="' + self.prevSlide + '" title="Previous Slide" class="prev">&lt;</a>',
-                '<a href="/' + self.currentSlide + '" data-slide="' + self.currentSlide + '" title="Current Slide" class="current">#</a>',
-                '<a href="/' + self.nextSlide + '" data-slide="' + self.nextSlide + '" title="Next Slide" class="next">&gt;</a>',
+                '<a href="' + self.prefix + self.prevSlide + '" data-slide="' + self.prevSlide + '" title="Previous Slide" class="prev">&lt;</a>',
+                '<a href="' + self.prefix + self.currentSlide + '" data-slide="' + self.currentSlide + '" title="Current Slide" class="current">#</a>',
+                '<a href="' + self.prefix + self.nextSlide + '" data-slide="' + self.nextSlide + '" title="Next Slide" class="next">&gt;</a>',
             '</nav>'
             ].join(' ');
         }
